@@ -1,0 +1,79 @@
+.navbar-brand{
+	font-family: 'Prompt', sans-serif;
+	color:#fff;
+	font-size: 1.6em;
+}
+.navbar-default{
+	border-radius: 0px;
+    background-color: #fff;
+    border: 0px;
+    color: #fff;
+    box-shadow: -3px -3px 3px 0 rgba(0,0,0,0.19) , 3px 0 3px 0 rgba(0,0,0,0.19) , 0 3px 3px 0 rgba(0,0,0,0.23);
+}
+body{
+	font-family: 'Montserrat Alternates', sans-serif;
+	overflow-x: hidden;
+    background-color: rgba(0,0,0,0.035);
+}
+.navbar-nav li a{
+	color:#fff;
+}
+.form-group input[type=text]{
+	border-radius:0px;
+}
+.form-control{
+	border-radius:0px;
+}
+.form-group label{
+	font-weight: 300;
+}
+.left-box{
+	background-color:#fff;
+	font-family: 'Prompt', sans-serif;
+    box-shadow: -1px 0 2px 0 rgba(0,0,0,0.12) , 1px 0 2px 0 rgba(0,0,0,0.12) , 0 1px 1px 0 rgba(0,0,0,0.24);
+}
+.right-box{
+	background-color: #fff;
+	color:#777;
+	padding:40px;
+	font-family: 'Prompt', sans-serif;
+    box-shadow: -1px 0 2px 0 rgba(0,0,0,0.12) , 1px 0 2px 0 rgba(0,0,0,0.12) , 0 1px 1px 0 rgba(0,0,0,0.24);
+}
+.left-box-title{
+	background: -moz-linear-gradient(45deg, rgba(58,83,155,1) 0%, rgba(0,128,128,1) 100%); /* ff3.6+ */
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(58,83,155,1)), color-stop(100%, rgba(0,128,128,1))); /* safari4+,chrome */
+	background: -webkit-linear-gradient(45deg, rgba(58,83,155,1) 0%, rgba(0,128,128,1) 100%); /* safari5.1+,chrome10+ */
+	background: -o-linear-gradient(45deg, rgba(58,83,155,1) 0%, rgba(0,128,128,1) 100%); /* opera 11.10+ */
+	background: -ms-linear-gradient(45deg, rgba(58,83,155,1) 0%, rgba(0,128,128,1) 100%); /* ie10+ */
+	background: linear-gradient(45deg, rgba(58,83,155,1) 0%, rgba(0,128,128,1) 100%); /* w3c */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008080', endColorstr='#3A539B',GradientType=1 ); /* ie6-9 */
+	color: #fff;
+	padding: 15px;
+	font-size: 17px;
+	border-bottom: 2px solid #3A539B;
+}
+.left-box-icon-div{
+	padding:10px 16px;
+}
+.left-box-icon-div div{
+	border: 2px solid #eee;
+	text-align: center;
+}
+.tags{
+	padding:10px 16px;
+}
+.tags span{
+	border: 2px solid #eee;
+    display: inline-block;
+    padding:1px 10px;
+    font-size:12px;
+}
+.output_result{
+	padding:20px 40px;
+}
+.output_key{
+	border:1px solid #000;
+}
+.output_value{
+	border:1px solid #000;
+}
