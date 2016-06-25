@@ -1,4 +1,4 @@
-<IfModule mod_rewrite.c>
+<IfModule mod_rewrite.so>
   RewriteEngine On
   # !IMPORTANT! Set your RewriteBase here and don't forget trailing and leading
   #  slashes.
@@ -12,7 +12,7 @@
   RewriteRule ^(.*)$ index.php?/$1 [L]
 </IfModule>
 
-<IfModule !mod_rewrite.c>
+<IfModule !mod_rewrite.so>
   # If we don't have mod_rewrite installed, all 404's
   # can be sent to index.php, and everything works as normal.
   # Submitted by: ElliotHaughin
