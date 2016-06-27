@@ -22,7 +22,7 @@ class Api extends CI_Controller {
 				"url_hash" => md5($element->href),
 				"last_modified" => $this->getModifiedDate($element->href)
 				);
-			//$this->db->insert('records', $data);
+			#$this->db->insert('records', $data);
 		}
 
 	}
@@ -31,6 +31,7 @@ class Api extends CI_Controller {
 	{
 		//52 banks ifsc complete on 14-06-2016
 		//$que = $this->db->get_where("records",array("id >" => "124"));
+		$que = $this->db->get("records");
 		$res = $que->result_array();
 		foreach ($res as $result) {			
 			$url = str_replace("http:", "https:", $result["url"]);
@@ -52,7 +53,7 @@ class Api extends CI_Controller {
 					"state" => isset($data[$i]["I"]) ? $data[$i]["I"] : "",
 					"bank_id" => $result["id"]
 					);
-				//$this->db->insert("bank_detail",$temp);
+				$this->db->insert("bank_detail",$temp);
 			}
 			//var_dump($val);
 			
