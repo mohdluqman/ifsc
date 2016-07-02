@@ -23,7 +23,7 @@ Search information about NEFT enabled bank Branches
 	<div class="form-group">
 	<select class="form-control">		
 		<option disabled selected>Select bank name</option>
-		<option ng-repeat="bank in banksname.data">{{bank.bank_name}}</option>
+		<option ng-repeat="bank in banksname.data" value="{{bank.id}}">{{bank.bank_name}}</option>
 	</select>
 	</div>
 	<div class="form-group">
