@@ -1,6 +1,4 @@
-LICENSE.html
-application/config/config.php
-application/config/database.php
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -49,3 +47,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+LICENSE.html
+application/config/config.php
+application/config/database.php
+.htaccess

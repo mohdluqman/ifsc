@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bankslibrary.com | Banks IFSC Code MICR Code Branch Code</title>
-    <link rel="icon" href="application/views/bankslibrary.ico" sizes="16x16">
+    <link rel="icon" href="<?=img_url()?>bankslibrary.ico" sizes="16x16">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script src="<?=js_url()?>angular-route.min.js"></script>
 	<script src="<?=js_url()?>jquery.min.js"></script>

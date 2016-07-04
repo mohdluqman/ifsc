@@ -35,12 +35,13 @@ class S extends CI_Controller {
 	public function selectBank($value='')
 	{
 		if(!empty($value)) {
-			$que = $this->db->get_where("records",array("id" => $post["id"]));
+			$que = $this->db->get_where("records",array("id" => $value));
 		}
 		else {
 			$post = $this->input->post(NULL,TRUE);
-			$que = $this->db->get_where("records",array("id" => $post["id"]));
+			$que = $this->db->where($post)->get("bank_detail");
 			echo json_encode($que->result_array());
 		}
 	}
+
 }
