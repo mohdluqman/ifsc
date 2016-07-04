@@ -35,7 +35,7 @@ class S extends CI_Controller {
 	public function selectBank($value='')
 	{
 		if(!empty($value)) {
-			
+			$que = $this->db->get_where("records",array("id" => $post["id"]));
 		}
 		else {
 			$post = $this->input->post(NULL,TRUE);
