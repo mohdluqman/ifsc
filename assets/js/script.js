@@ -4,13 +4,13 @@ ifsc_app.controller('homeCtrl',function($scope,$http){
 	$http.get('/s/get_all_banks').then(function(data){
 		$scope.banksname = data
 	})
-	$http.get('/s/get_all_states').then(function(data){
+	/*$http.get('/s/get_all_states').then(function(data){
 		$scope.state_names = data
 	})
 	$http.get('/s/get_all_districts').then(function(data){
 		$scope.districts = data
-	})
-	$http.post('/s/selectBank',{bank:"1"}).then(function(data){
+	})*/
+	$http.post('/s/selectBank',"bank_id:4").then(function(data){
 		$scope.districts = data
 	})
 	// $http.get('/s/get_all_branchs').then(function(data){
