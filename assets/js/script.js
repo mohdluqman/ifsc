@@ -10,8 +10,11 @@ ifsc_app.controller('homeCtrl',function($scope,$http){
 	$http.get('/s/get_all_districts').then(function(data){
 		$scope.districts = data
 	})*/
-	$http.post('/s/selectBank',"bank_id:4").then(function(data){
+	var parm = JSON.stringify({bank_id:4});
+	console.log(parm)
+	$http.post('http://bankslibrary.com/s/get_all_banks',parm).then(function(data){
 		$scope.districts = data
+		console.log(data)
 	})
 	// $http.get('/s/get_all_branchs').then(function(data){
 	// 	$scope.branchs = data
