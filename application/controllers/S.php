@@ -11,7 +11,6 @@ class S extends CI_Controller {
 	}
 	
 	public function get_all_states() {
-
 		$que = $this->db->distinct(true)->select("state")->get("bank_detail");
 		$res = $que->result_array();
 		echo json_encode($res);
@@ -28,40 +27,98 @@ class S extends CI_Controller {
 		$res = $que->result_array();
 		echo json_encode($res);
 	}
-	
+
 	public function get_all_banks() {
-		$rowlim = $this->rowlim;
-		$pg = 0;
-		$post = $this->input->post(NULL,TRUE);
-		if(array_key_exists("page",$post)) {
-			$pg = $post["page"];
-			unset($post["page"]);
-		}
-		$que = $this->db->select("bank_name,id")->limit($rowlim,$pg*$rowlim)->get("records");
+		$que = $this->db->select("bank_name,id")->get("records");
 		$res = $que->result_array();
 		echo json_encode($res);
-		$this->db->close();
 	}
 
-	public function selectBank($value='')
-	{
-		$rowlim = $this->rowlim;
-		if(!empty($value)) {
-			$que = $this->db->get_where("records",array("id" => $value));
+	public function get_state_from_bank() {
+		$post = $this->input->post(NULL,TRUE);
+		if(!array_key_exists("bank_id",$post)) {
+			echo json_encode(array("error"=>"params are missing"));
+			return;
 		}
-		else {
-			$post = $this->input->post(NULL,TRUE);
-			if($post) {
-				$pg = 0;
-				if(array_key_exists("page",$post)) {
-					$pg = $post["page"];
-					unset($post["page"]);
-				}
-				$que = $this->db->where($post)->limit($rowlim,$pg*$rowlim)->get("bank_detail");
-				echo json_encode($que->result_array());
-				var_dump($post);
-			}			
-		}
+		$data = array("bank_id" => $post["bank_id"]);
+		$que = $this->db->distinct(true)->select("state")->where($data)->get("bank_detail");
+		$res = $que->result_array();
+		echo json_encode($res);
 	}
+
+	public function get_district_from_bank() {
+		$post = $this->input->post(NULL,TRUE);
+		if(!array_key_exists("bank_id",$post) || !array_key_exists("state",$post)) {
+			echo json_encode(array("error"=>"params are missing"));
+			return;
+		}
+		$data = array("bank_id" => $post["bank_id"],"state" => $post["state"]);
+		$que = $this->db->distinct(true)->select("district")->where($data)->get("bank_detail");
+		$res = $que->result_array();
+		echo json_encode($res);
+	}
+
+	public function get_branch_from_bank() {
+		$post = $this->input->post(NULL,TRUE);
+		if(!array_key_exists("bank_id",$post) || !array_key_exists("state",$post) || !array_key_exists("ditrict",$post)) {
+			echo json_encode(array("error"=>"params are missing"));
+			return;
+		}
+		$data = array("bank_id" => $post["bank_id"],"state" => $post["state"],"district" => $post["district"]);
+		$que = $this->db->select("branch,id")->where($data)->get("bank_detail");
+		// echo $que;
+		$res = $que->result_array();
+		echo json_encode($res);
+	}
+
+	public function getDetailFromId() {
+		$post = $this->input->post(NULL,TRUE);
+		if(!array_key_exists("bank_id",$post) || !array_key_exists("id",$post)) {
+			echo json_encode(array("error"=>"param are misiing"));
+			return;
+		}
+		$data = array("bank_id" => $post["bank_id"],"id" => $post["id"]);
+		$que = $this->db->where($data)->get("bank_detail");
+		$res = $que->result_array();
+		echo json_encode($res);
+	}
+	
+	// public function get_all_banks() {
+	// 	$rowlim = $this->rowlim;
+	// 	$pg = 0;
+	// 	$post = $this->input->post(NULL,TRUE);
+	// 	if(array_key_exists("page",$post)) {
+	// 		$pg = $post["page"];
+	// 		unset($post["page"]);
+	// 	}
+	// 	$que = $this->db->select("bank_name,id")->limit($rowlim,$pg*$rowlim)->get("records");
+	// 	$res = $que->result_array();
+	// 	echo json_encode($res);
+	// 	$this->db->close();
+	// }
+
+	// public function selectBank($value='')
+	// {
+	// 	$rowlim = $this->rowlim;
+	// 	if(!empty($value)) {
+	// 		$que = $this->db->get_where("records",array("id" => $value));
+	// 	}
+	// 	else {
+	// 		$post = $this->input->post(NULL,TRUE);
+	// 		if($post) {
+	// 			$pg = 0;
+	// 			if(array_key_exists("page",$post)) {
+	// 				$pg = $post["page"];
+	// 				unset($post["page"]);
+	// 			}
+	// 			if(array_key_exists("offset",$post)) {
+	// 				$rowlim = $post["offset"];
+	// 				unset($post["offset"]);
+	// 			}
+	// 			$que = $this->db->where($post)->limit($rowlim,$pg*$rowlim)->get("bank_detail");
+	// 			echo json_encode($que->result_array());
+	// 		}			
+	// 	}
+	// }
 
 }
