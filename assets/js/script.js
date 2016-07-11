@@ -1,10 +1,10 @@
 ifsc_app = angular.module('ifsc-bank',['ngRoute','angularCSS','ngclipboard']);
 
-ifsc_app.controller('homeCtrl',function($scope,$http){
+ifsc_app.controller('homeCtrl',function($scope,$http,$rootScope){
 
 
-	$http.get('/s/get_all_banks').then(function(data){
-		$scope.banksname = data
+	$http.get('/s/get_all_banks').then(function(responce){
+		$scope.banksname = responce
 	})
 	/*$http.get('/s/get_all_states').then(function(data){
 		$scope.state_names = data
@@ -13,17 +13,16 @@ ifsc_app.controller('homeCtrl',function($scope,$http){
 		$scope.districts = data
 	})*/
 	$scope.send_bank_name_id = function(){
-			var bankid = $scope.bank_name.id;
-			console.log(bankid)
-		// $http.post("http://bankslibrary.com/s/get_state_from_bank",{bank_id:bankid},headers: {'Content-Type':'application/x-www-form-urlencoded'}).then(function(data){
-		// $scope.states = data
-		// console.log(data)
-		// })	
-
-
+		var bankid = $scope.bank_name.id;
+		$rootScope.bankName = bankid; 
+		$scope.state_name = ''; 
+		$scope.district_name = ''; 
+		$scope.branch_name = ''; 
+		console.log(bankid)
+		console.log($rootScope.bankName)
 		$http({
 		    method: 'POST',
-		    url: 'http://bankslibrary.com/s/get_state_from_bank',
+		    url: '/s/get_state_from_bank',
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 		    transformRequest: function(obj) {
 		        var str = [];
@@ -32,13 +31,69 @@ ifsc_app.controller('homeCtrl',function($scope,$http){
 		        return str.join("&");
 		    },
 		    data: {bank_id:bankid}
-		}).then(function(data){
-		$scope.states = data
-		console.log(data)
+		}).then(function(responce){
+		$scope.states = responce
+		console.log(responce)
 		})	
 	}
 
+	$scope.send_bank_and_state_id = function(){ 
+		$rootScope.state_name = $scope.state_name.state;
+		$scope.district_name = ''; 
+		$scope.branch_name = ''; 
+		$http({
+		    method: 'POST',
+		    url: '/s/get_district_from_bank',
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+		    transformRequest: function(obj) {
+		        var str = [];
+		        for(var p in obj)
+		        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+		        return str.join("&");
+		    },
+		    data: {bank_id:$rootScope.bankName,state:$scope.state_name.state}
+		}).then(function(responce){
+		$scope.districts = responce
+		console.log(responce)
+		})	
+	}
 
+	$scope.send_bank_state_and_branch_id = function(){ 
+		$scope.branch_name = ''; 
+		$http({
+		    method: 'POST',
+		    url: '/s/get_branch_from_bank',
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+		    transformRequest: function(obj) {
+		        var str = [];
+		        for(var p in obj)
+		        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+		        return str.join("&");
+		    },
+		    data: {bank_id:$rootScope.bankName,state:$rootScope.state_name,district:$scope.district_name.district}
+		}).then(function(responce){
+		$scope.branch = responce
+		console.log(responce)
+		})	
+	}
+
+	$scope.send_bank_branch_id = function(){ 
+		$http({
+		    method: 'POST',
+		    url: '/s/getDetailFromId',
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+		    transformRequest: function(obj) {
+		        var str = [];
+		        for(var p in obj)
+		        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+		        return str.join("&");
+		    },
+		    data: {bank_id:$rootScope.bankName,id:$scope.branch_name.id}
+		}).then(function(responce){
+		$scope.bank_info = responce
+		console.log(responce)
+		})	
+	}
 })
 
 ifsc_app.config(['$routeProvider',function($routeProvider){
