@@ -2,6 +2,18 @@ ifsc_app = angular.module('ifsc-bank',['ngRoute','angularCSS','ngclipboard']);
 
 ifsc_app.controller('homeCtrl',function($scope,$http,$rootScope){
 
+	// $scope.reset_field = function(){ 
+	// 	// $scope.states = ''; 
+	// 	// $scope.districts = ''; 
+	// 	// $scope.branch = ''; 
+	// 	$scope.bank_info = '';
+	// 	$scope.state_name = ''; 
+	// 	$scope.district_name = ''; 
+	// 	$scope.branch_name = ''; 
+	// 	$http.get('/s/get_all_banks').then(function(responce){
+	// 			$scope.banksname = responce
+	// 		})
+	// }
 
 	$http.get('/s/get_all_banks').then(function(responce){
 		$scope.banksname = responce
@@ -15,11 +27,15 @@ ifsc_app.controller('homeCtrl',function($scope,$http,$rootScope){
 	$scope.send_bank_name_id = function(){
 		var bankid = $scope.bank_name.id;
 		$rootScope.bankName = bankid; 
+		$scope.states = ''; 
+		$scope.districts = ''; 
+		$scope.branch = ''; 
 		$scope.state_name = ''; 
 		$scope.district_name = ''; 
 		$scope.branch_name = ''; 
-		console.log(bankid)
-		console.log($rootScope.bankName)
+		$scope.bank_info = ''; 
+		// console.log(bankid)
+		// console.log($rootScope.bankName)
 		$http({
 		    method: 'POST',
 		    url: '/s/get_state_from_bank',
@@ -33,7 +49,7 @@ ifsc_app.controller('homeCtrl',function($scope,$http,$rootScope){
 		    data: {bank_id:bankid}
 		}).then(function(responce){
 		$scope.states = responce
-		console.log(responce)
+		// console.log(responce)
 		})	
 	}
 
@@ -54,7 +70,7 @@ ifsc_app.controller('homeCtrl',function($scope,$http,$rootScope){
 		    data: {bank_id:$rootScope.bankName,state:$scope.state_name.state}
 		}).then(function(responce){
 		$scope.districts = responce
-		console.log(responce)
+		// console.log(responce)
 		})	
 	}
 
@@ -73,7 +89,7 @@ ifsc_app.controller('homeCtrl',function($scope,$http,$rootScope){
 		    data: {bank_id:$rootScope.bankName,state:$rootScope.state_name,district:$scope.district_name.district}
 		}).then(function(responce){
 		$scope.branch = responce
-		console.log(responce)
+		// console.log(responce)
 		})	
 	}
 

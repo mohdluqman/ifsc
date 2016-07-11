@@ -43,8 +43,8 @@ Search information about NEFT enabled bank Branches
 		<option value="" disabled>Select branch name</option>
 	</select>
 	</div>
-
-	{{bank_info}}
+	<!-- <button class="btn btn-default" ng-click="reset_field()">Reset</button> -->
+	
 	<!-- <div class="form-group">
 	<select class="form-control">		
 		<option disabled selected>Select bank name</option>
@@ -72,16 +72,99 @@ Search information about NEFT enabled bank Branches
 </form>
 </div>
 </div>
-
-<hr/>
+<h>
 <div class="row">
-<div class="col-md-12 output_result">
-	<div class="row">
+<div class="col-md-12">
+	<div class="row output_result">
 	<div class="col-md-3 col-xs-4 text-left output_key">
-		Bank Name
+		IFSC Code
 	</div>	
 	<div class="col-md-9 col-xs-8 output_value">
-		<div id="foo" style="display: inline-block;">STATE BANK OF INDIA</div><a ngclipboard data-clipboard-target="#foo" value={{cop_message}}> <i class="fa fa-copy"></i> copy</a>
+		<div id="foo" style="display: inline-block;">{{bank_info.data[0].ifsc}}</div><a ngclipboard data-clipboard-target="#foo" value={{cop_message}}> <i class="fa fa-copy"></i> copy</a>
+	</div>
+	</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+	<div class="row output_result">
+	<div class="col-md-3 col-xs-4 text-left output_key">
+		MICR Code
+	</div>	
+	<div class="col-md-9 col-xs-8 output_value">
+		<div id="foo" style="display: inline-block;">{{bank_info.data[0].micr}}</div><a ngclipboard data-clipboard-target="#foo" value={{cop_message}}> <i class="fa fa-copy"></i> copy</a>
+	</div>
+	</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+	<div class="row output_result">
+	<div class="col-md-3 col-xs-4 text-left output_key">
+		Branch
+	</div>	
+	<div class="col-md-9 col-xs-8 output_value">
+		<div id="foo" style="display: inline-block;">{{bank_info.data[0].branch}}</div><a ngclipboard data-clipboard-target="#foo" value={{cop_message}}> <i class="fa fa-copy"></i> copy</a>
+	</div>
+	</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+	<div class="row output_result">
+	<div class="col-md-3 col-xs-4 text-left output_key">
+		Address
+	</div>	
+	<div class="col-md-9 col-xs-8 output_value">
+		<div id="foo" style="display: inline-block;">{{bank_info.data[0].address}}</div><a ngclipboard data-clipboard-target="#foo" value={{cop_message}}> <i class="fa fa-copy"></i> copy</a>
+	</div>
+	</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+	<div class="row output_result">
+	<div class="col-md-3 col-xs-4 text-left output_key">
+		Contact
+	</div>	
+	<div class="col-md-9 col-xs-8 output_value">
+		<div id="foo" style="display: inline-block;">{{bank_info.data[0].contact}}</div><a ngclipboard data-clipboard-target="#foo" value={{cop_message}}> <i class="fa fa-copy"></i> copy</a>
+	</div>
+	</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+	<div class="row output_result">
+	<div class="col-md-3 col-xs-4 text-left output_key">
+		City
+	</div>	
+	<div class="col-md-9 col-xs-8 output_value">
+		<div id="foo" style="display: inline-block;">{{bank_info.data[0].city}}</div><a ngclipboard data-clipboard-target="#foo" value={{cop_message}}> <i class="fa fa-copy"></i> copy</a>
+	</div>
+	</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+	<div class="row output_result">
+	<div class="col-md-3 col-xs-4 text-left output_key">
+		District
+	</div>	
+	<div class="col-md-9 col-xs-8 output_value">
+		<div id="foo" style="display: inline-block;">{{bank_info.data[0].district}}</div><a ngclipboard data-clipboard-target="#foo" value={{cop_message}}> <i class="fa fa-copy"></i> copy</a>
+	</div>
+	</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+	<div class="row output_result">
+	<div class="col-md-3 col-xs-4 text-left output_key">
+		State
+	</div>	
+	<div class="col-md-9 col-xs-8 output_value">
+		<div id="foo" style="display: inline-block;">{{bank_info.data[0].state}}</div><a ngclipboard data-clipboard-target="#foo" value={{cop_message}}> <i class="fa fa-copy"></i> copy</a>
 	</div>
 	</div>
 </div>
