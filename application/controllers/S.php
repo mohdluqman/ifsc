@@ -92,7 +92,9 @@ class S extends CI_Controller {
 		}
 		$data = array("bank_id" => $post["bank_id"],"id" => $post["id"]);
 		$que = $this->db->where($data)->get("bank_detail");
-		$res = $que->result_array();
+		$res = $que->row_array();
+		$que = $this->db->select('bank_name')->get_where("records",array("id"=>$post["bank_id"]));
+		array_push($res, $que->row_array());
 		echo json_encode($res);
 	}
 
