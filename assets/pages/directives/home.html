@@ -21,9 +21,30 @@ Search information about NEFT enabled bank Branches
 <div class="col-md-8 col-md-offset-2">
 <form>
 	<div class="form-group">
+	<select class="form-control" ng-options="bank.bank_name for bank in banksname.data" ng-model="bank_name" ng-change="send_bank_name_id()">
+		<option value="" disabled>Select bank name</option>
+	</select>
+	</div>
+	<div class="form-group">
+	<select class="form-control" ng-options="states.state for states in states.data" ng-model="state_name" ng-change="send_state_name_id()">
+		<option value="" disabled>Select state</option>
+	</select>
+	</div>
+<!-- 	<div class="form-group">
+	<select class="form-control" ng-options="bank.bank_name for bank in banksname.data" ng-model="bank_name" ng-change="send_bank_name_id()">
+		<option value="" disabled>Select district</option>
+	</select>
+	</div>
+	<div class="form-group">
+	<select class="form-control" ng-options="bank.bank_name for bank in banksname.data" ng-model="bank_name" ng-change="send_bank_name_id()">
+		<option value="" disabled>Select branch name</option>
+	</select>
+	</div> -->
+
+	<!-- <div class="form-group">
 	<select class="form-control">		
 		<option disabled selected>Select bank name</option>
-		<option ng-repeat="bank in banksname.data" value="{{bank.id}}">{{bank.bank_name}}</option>
+		<option ng-repeat="bank in banksname.data" ng-value="bank.id" ng-model="bank.id" ng-change="send_bank_name_id()">{{bank.bank_name}}</option>
 	</select>
 	</div>
 	<div class="form-group">
@@ -43,7 +64,7 @@ Search information about NEFT enabled bank Branches
 		<option disabled selected>Select branch name</option>
 		<option ng-repeat="b in branchs.data">{{b.branch}}</option>
 	</select>
-	</div>
+	</div> -->
 </form>
 </div>
 </div>
