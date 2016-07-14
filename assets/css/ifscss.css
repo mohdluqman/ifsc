@@ -68,8 +68,8 @@ body{
     padding:1px 10px;
     font-size:12px;
 }
-.output_result{
-	padding:20px 40px;
+.output_key, .output_value{
+	padding:5px 40px;
 }
 .output_key{
 	border:1px solid #000;

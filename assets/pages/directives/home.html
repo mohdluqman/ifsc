@@ -19,73 +19,91 @@ Search information about NEFT enabled bank Branches
 </div>
 <div class="row" style="padding:40px">
 <div class="col-md-8 col-md-offset-2">
-<form>
 	<div class="form-group">
-	<select class="form-control" ng-options="bank.bank_name for bank in banksname.data" ng-model="bank_name" ng-change="send_bank_name_id()">
+	<select class="form-control" ng-options="bank.bank_name for bank in banksname.data | orderBy:'bank_name'" ng-model="bankObj" ng-change="send_bank_name_id()">
 		<option value="" disabled>Select bank name</option>
 	</select>
 	</div>
 
 	<div class="form-group">
-	<select class="form-control" ng-options="states.state for states in states.data" ng-model="state_name" ng-change="send_bank_and_state_id()">
+	<select class="form-control" ng-options="states.state for states in states.data | orderBy:'state'" ng-model="state_name" ng-change="send_bank_and_state_id()">
 		<option value="" disabled>Select state</option>
 	</select>
 	</div>
 
 	<div class="form-group">
-	<select class="form-control" ng-options="dist.district for dist in districts.data" ng-model="district_name" ng-change="send_bank_state_and_branch_id()">
+	<select class="form-control" ng-options="dist.district for dist in districts.data | orderBy:'district'" ng-model="district_name" ng-change="send_bank_state_and_branch_id()">
 		<option value="" disabled>Select district</option>
 	</select>
 	</div>
 
 	<div class="form-group">
-	<select class="form-control" ng-options="br.branch for br in branch.data" ng-model="branch_name" ng-change="send_bank_branch_id()">
+	<select class="form-control" ng-options="br.branch for br in branch.data | orderBy:'branch'" ng-model="branch_name" ng-change="send_bank_branch_id()">
 		<option value="" disabled>Select branch name</option>
 	</select>
 	</div>
-
-	{{bank_info}}
-	<!-- <div class="form-group">
-	<select class="form-control">		
-		<option disabled selected>Select bank name</option>
-		<option ng-repeat="bank in banksname.data" ng-value="bank.id" ng-model="bank.id" ng-change="send_bank_name_id()">{{bank.bank_name}}</option>
-	</select>
-	</div>
-	<div class="form-group">
-	<select class="form-control">
-		<option disabled selected>Select state</option>
-		<option ng-repeat="s in state_names.data">{{s.state}}</option>
-	</select>
-	</div>
-	<div class="form-group">
-	<select class="form-control">
-		<option disabled selected>Select district</option>
-		<option ng-repeat="d in districts.data">{{d.district}}</option>
-	</select>
-	</div>
-	<div class="form-group">
-	<select class="form-control">
-		<option disabled selected>Select branch name</option>
-		<option ng-repeat="b in branchs.data">{{b.branch}}</option>
-	</select>
-	</div> -->
-</form>
+	<!-- <button class="btn btn-default" ng-click="reset_field()">Reset</button> -->
 </div>
 </div>
 
+<div class="table-responsive" ng-if="showTable">
 <hr/>
-<div class="row">
-<div class="col-md-12 output_result">
-	<div class="row">
-	<div class="col-md-3 col-xs-4 text-left output_key">
-		Bank Name
-	</div>	
-	<div class="col-md-9 col-xs-8 output_value">
-		<div id="foo" style="display: inline-block;">STATE BANK OF INDIA</div><a ngclipboard data-clipboard-target="#foo" value={{cop_message}}> <i class="fa fa-copy"></i> copy</a>
-	</div>
-	</div>
+  <table class="table table-bordered">
+    <tr>
+    <th>Bank Name</th>
+    <td>{{bank_info.data.bank_name}}</td>
+    </tr>
+
+    <tr>
+    <th>Branch Name</th>
+    <td>{{bank_info.data.branch}}</td>
+
+    </tr>
+
+    <tr>
+    <th>IFSC Code</th>
+    <td>{{bank_info.data.ifsc}}</td>
+
+    </tr>
+
+    <tr>
+    <th>MICR Code</th>
+    <td>{{bank_info.data.micr}}</td>
+
+    </tr>
+
+    <tr>
+    <th>Bank Address</th>
+    <td>{{bank_info.data.address}}</td>
+
+    </tr>
+
+    <tr>
+    <th>Contact info</th>
+    <td>{{bank_info.data.contact}}</td>
+
+    </tr>
+
+    <tr>
+    <th>City</th>
+    <td>{{bank_info.data.city}}</td>
+
+    </tr>
+
+    <tr>
+    <th>District</th>
+    <td>{{bank_info.data.district}}</td>
+
+    </tr>
+
+    <tr>
+    <th>State</th>
+    <td>{{bank_info.data.state}}</td>
+
+    </tr>
+  </table>
 </div>
-</div>
+
 <hr/>
 <div class="row tags">
 	<div class="col-md-1 text-right col-xs-1">
