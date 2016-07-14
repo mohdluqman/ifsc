@@ -98,6 +98,24 @@ class S extends CI_Controller {
 		echo json_encode($res);
 	}
 
+	public function getIdFromBankName($name='')
+	{
+		if(!empty($name)) {
+			//$name = str_replace("-", " ", $name);
+			$que = $this->db->like('bank_name', $name)->get("records");
+			$res = $que->row_array();
+			//echo json_encode($res);
+		}
+		else {
+			$post = $this->input->post(NULL,TRUE);
+			//$name = str_replace("-", " ", $post['name']);
+			$name = $post["name"];
+			$que = $this->db->like('bank_name', $name)->get("records");
+			$res = $que->row_array();
+			echo json_encode($res);
+		}
+	}
+
 	// It returns all the districts in a state
 	public function get_district_from_state($value='') {
 		$post = $this->input->post(NULL,TRUE);
