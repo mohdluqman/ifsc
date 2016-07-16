@@ -1,0 +1,25 @@
+<h2>IFSC code by select bank name</h2>
+			<div class="row home_page">
+			<div class="col-md-12">
+				<div class="row form-group">
+					<div class="col-md-6">
+					<select class="form-control" ng-options="bank.bank_name for bank in banksname.data | orderBy:'bank_name'" ng-model="bankObj" ng-change="send_bank_name_id(bankObj.id,bankObj.bank_name)">
+						<option value="" disabled>Select Bank Name</option>
+					</select>
+			<!-- 		<ul class="bank_list">
+<li ng-repeat="name in banksname.data"><a>{{name.bank_name}}</a></li>
+</ul> -->
+					</div>
+				</div>
+			</div>
+			</div>
+<hr style="border-width:2px"/>
+<div class="text-center" style="margin-top:-30px"><span style="border: 2px solid #eee;border-radius: 50%;padding: 5px 7px 4px 5px;background-color: #f95759;color: #fff">OR</span></div>
+<h2>IFSC code by listed banks name</h2>
+<div class="row bank_name_box">
+<div class="col-md-12">
+<ul class="bank_list">
+<li ng-repeat="name in banksname.data"><a ng-click="send_bank_name_id(name.id,name.bank_name)">{{name.bank_name}}</a></li>
+</ul>
+</div>
+</div>

@@ -19,12 +19,12 @@ Search information about NEFT enabled bank Branches
 </div>
 <div class="row" style="padding:40px">
 <div class="col-md-8 col-md-offset-2">
+	{{bankObj}}
 	<div class="form-group">
 	<select class="form-control" ng-options="bank.bank_name for bank in banksname.data | orderBy:'bank_name'" ng-model="bankObj" ng-change="send_bank_name_id()">
 		<option value="" disabled>Select bank name</option>
 	</select>
 	</div>
-
 	<div class="form-group">
 	<select class="form-control" ng-options="states.state for states in states.data | orderBy:'state'" ng-model="state_name" ng-change="send_bank_and_state_id()">
 		<option value="" disabled>Select state</option>
