@@ -1,11 +1,18 @@
 <h2>IFSC Code From Select bank Name</h2>
 			<div class="row home_page">
+			<div class="col-md-12">
 				<div class="row form-group">
 					<div class="col-md-6">
-					{{bank_name}} <a href="#/">edit</a>
+					<div class="home_label">{{bank_name}} <a href="#/">edit</a></div>
 					<select class="form-control" ng-options="states.state for states in states.data | orderBy:'state'" ng-model="state_name" ng-change="send_bank_and_state_id(bank_id,bank_name,state_name.state)">
 						<option value="" disabled>Select State</option>
 					</select>
+					</div>
+					<div class="col-md-4 col-md-offset-2">
+					<h4>Step 1 : Select Bank Name</h4>
+					<h4>Step 2 : Select State Name</h4>
+					<h4>Step 3 : Select District Name</h4>
+					<h4>Step 4 : Select Branch Name</h4>
 					</div>
 				</div>
 			</div>
@@ -16,7 +23,7 @@
 <div class="row bank_name_box">
 <div class="col-md-12">
 <ul class="bank_list">
-<li ng-repeat="name in states.data"><a ng-click="send_bank_and_state_id(bank_id,bank_name,name.state)">{{name.state}}</a></li>
+<li ng-repeat="name in states.data | orderBy:'name.state'"><a ng-click="send_bank_and_state_id(bank_id,bank_name,name.state)">{{name.state}}</a></li>
 </ul>
 </div>
 </div>

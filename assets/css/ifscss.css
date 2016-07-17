@@ -18,7 +18,7 @@ body{
 	padding:0px;
 }
 .home_page{
-	padding:20px;
+	padding:20px 20px 20px 0px;
 }
 .form-control{
     border-radius: 0px;
@@ -38,4 +38,15 @@ body{
 .bank_list li{
 	margin:10px 0px 10px 0px;
 	list-style-type: none;
+}
+hr{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.home_label{
+	border:2px solid #eee;
+	padding: 6px 14px;
+	margin-bottom: 10px;
+	/*background-color: #f95759;*/
+	background-color: #eee;
 }

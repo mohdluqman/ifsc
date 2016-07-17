@@ -1,6 +1,6 @@
 <!-- Developed by "Mohd Danish" & "Mohammad Luqman" 13/06/2016 -->
 <!DOCTYPE html>
-<html ng-app="ifsc-bank" lang="en">
+<html ng-app="bankLibrary" lang="en">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +26,7 @@
 </head>
 
 <body>
-<div class="container-fluid" ng-controller="mainCtrl">
+<div class="container-fluid" ng-controller="MainController">
 	<div class="row">
 	<div class="col-md-12">
 		<nav class="navbar navbar-default">

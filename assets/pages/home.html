@@ -10,16 +10,22 @@
 <li ng-repeat="name in banksname.data"><a>{{name.bank_name}}</a></li>
 </ul> -->
 					</div>
+					<div class="col-md-4 col-md-offset-2">
+					<h4>Step 1 : Select Bank Name</h4>
+					<h4>Step 2 : Select State Name</h4>
+					<h4>Step 3 : Select District Name</h4>
+					<h4>Step 4 : Select Branch Name</h4>
+					</div>
 				</div>
 			</div>
 			</div>
 <hr style="border-width:2px"/>
-<div class="text-center" style="margin-top:-30px"><span style="border: 2px solid #eee;border-radius: 50%;padding: 5px 7px 4px 5px;background-color: #f95759;color: #fff">OR</span></div>
-<h2>IFSC code by listed banks name</h2>
+<div class="text-center" style="margin-top:-18px"><span style="border: 2px solid #eee;border-radius: 50%;padding: 5px 7px 4px 5px;background-color: #f95759;color: #fff">OR</span></div>
+<h2>IFSC code by listed banks</h2>
 <div class="row bank_name_box">
 <div class="col-md-12">
 <ul class="bank_list">
-<li ng-repeat="name in banksname.data"><a ng-click="send_bank_name_id(name.id,name.bank_name)">{{name.bank_name}}</a></li>
+<li ng-repeat="name in banksname.data | orderBy:'name'"><a ng-click="send_bank_name_id(name.id,name.bank_name)">{{name.bank_name}}</a></li>
 </ul>
 </div>
 </div>

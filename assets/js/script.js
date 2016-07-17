@@ -1,13 +1,12 @@
-ifsc_app = angular.module('ifsc-bank',['ngRoute','angularCSS']);
+app = angular.module('bankLibrary',['ngRoute','angularCSS']);
 
-ifsc_app.controller('mainCtrl',function($scope,$http,$rootScope,$location){
-	$scope.tt = false
+app.controller('MainController',function($scope,$http,$rootScope,$location){
 	$http.get('/s/get_all_banks').then(function(responce){
 		$scope.banksname = responce
 	})
 })
 
-ifsc_app.controller('homeCtrl',function($scope,$http,$rootScope,$location,$routeParams){	
+app.controller('HomeController',function($scope,$http,$rootScope,$location,$routeParams){	
 	$scope.send_bank_name_id = function(value1,value2){
 		$scope.bank_id = value1
 		$scope.bank_name = value2
@@ -18,7 +17,7 @@ ifsc_app.controller('homeCtrl',function($scope,$http,$rootScope,$location,$route
 	}
 })
 
-ifsc_app.controller('bankListCtrl',function($scope,$http,$rootScope,$location,$routeParams){
+app.controller('BankListController',function($scope,$http,$rootScope,$location,$routeParams){
 	console.log($routeParams.bankname)
 	console.log($routeParams.bank_id)
 	$scope.bank_name = $routeParams.bankname;
@@ -47,7 +46,7 @@ ifsc_app.controller('bankListCtrl',function($scope,$http,$rootScope,$location,$r
 		
 })
 
-ifsc_app.controller('stateListCtrl',function($scope,$http,$rootScope,$location,$routeParams){
+app.controller('StateListController',function($scope,$http,$rootScope,$location,$routeParams){
 	$scope.bankid_on_district = $routeParams.bank_id;
 	$scope.bankname_on_district = $routeParams.bankname;
 	$scope.state_on_district = $routeParams.state;
@@ -75,7 +74,7 @@ ifsc_app.controller('stateListCtrl',function($scope,$http,$rootScope,$location,$
 	}
 })
 
-ifsc_app.controller('districtListCtrl',function($scope,$http,$rootScope,$location,$routeParams){
+app.controller('DistrictListController',function($scope,$http,$rootScope,$location,$routeParams){
 	$scope.bankid_on_district_page = $routeParams.bank_id;
 	$scope.bankname_on_district_page = $routeParams.bankname;
 	$scope.state_on_district_page = $routeParams.state;
@@ -107,7 +106,7 @@ ifsc_app.controller('districtListCtrl',function($scope,$http,$rootScope,$locatio
 	}
 })
 
-ifsc_app.controller('branchInfoCtrl',function($scope,$http,$rootScope,$location,$routeParams){
+app.controller('BranchInfoController',function($scope,$http,$rootScope,$location,$routeParams){
 	$scope.bankid_on_branch_page = $routeParams.bank_id
 	$scope.bankname_on_branch_page = $routeParams.bankname
 	$scope.state_on_branch_page = $routeParams.state
@@ -126,7 +125,7 @@ ifsc_app.controller('branchInfoCtrl',function($scope,$http,$rootScope,$location,
 		    },
 		    data: {bank_id:$scope.bankid_on_branch_page,id:$scope.branch_id_on_branch_page}
 		}).then(function(responce){
-		$scope.bank_info = responce
+		$scope.bank_info = responce.data
 		$scope.showTable = true
 		})		
 })
