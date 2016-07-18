@@ -48,5 +48,7 @@ hr{
 	padding: 6px 14px;
 	margin-bottom: 10px;
 	/*background-color: #f95759;*/
-	background-color: #eee;
+	/*background-color: #eee;*/
+	color:#fff;
+	background-color: #106CC8;
 }
