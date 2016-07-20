@@ -1,26 +1,34 @@
-<h2>IFSC code by select bank name</h2>
+<h2>Bank details (ifsc, micr, branch code and address etc.)</h2>
+<hr/>
+<br/>
+<div class="row steps_grid">
+<div class="col-md-3 col-xs-6"><span class="steps1">1</span> Select Bank Name</div>
+<div class="col-md-3 col-xs-6"><span class="steps2">2</span> Select State Name</div>
+<div class="col-md-3 col-xs-6"><span class="steps3">3</span> Select District Name</div>
+<div class="col-md-3 col-xs-6"><span class="steps4">4</span> Select Branch Name</div>
+</div>
+<br/>
 			<div class="row home_page">
 			<div class="col-md-12">
 				<div class="row form-group">
 					<div class="col-md-6">
-					<select class="form-control" ng-options="bank.bank_name for bank in banksname.data | orderBy:'bank_name'" ng-model="bankObj" ng-change="send_bank_name_id(bankObj.id,bankObj.bank_name)">
+					<!-- <select class="form-control" ng-options="bank.bank_name for bank in banksname.data | orderBy:'bank_name'" ng-model="bankObj" ng-change="send_bank_name_id(bankObj.id,bankObj.bank_name)">
 						<option value="" disabled>Select Bank Name</option>
-					</select>
-			<!-- 		<ul class="bank_list">
-<li ng-repeat="name in banksname.data"><a>{{name.bank_name}}</a></li>
-</ul> -->
-					</div>
-					<div class="col-md-4 col-md-offset-2">
-					<h4>Step 1 : Select Bank Name</h4>
-					<h4>Step 2 : Select State Name</h4>
-					<h4>Step 3 : Select District Name</h4>
-					<h4>Step 4 : Select Branch Name</h4>
+					</select> -->
+
+					<ui-select ng-model="bankObj" theme="selectize" title="Choose a person" ng-change="send_bank_name_id(bankObj.id,bankObj.bank_name)">
+			            <ui-select-match placeholder="Select Bank Name">{{bankObj.bank_name}}</ui-select-match>
+			            <ui-select-choices repeat="item in banksname.data | filter: $select.search">
+			              <div ng-bind-html="item.bank_name | highlight: $select.search"></div>
+			            </ui-select-choices>
+			          </ui-select>
 					</div>
 				</div>
 			</div>
 			</div>
 <hr style="border-width:2px"/>
-<div class="text-center" style="margin-top:-18px"><span style="border: 2px solid #eee;border-radius: 50%;padding: 5px 7px 4px 5px;background-color: #f95759;color: #fff">OR</span></div>
+<div class="text-center" style="margin-top:-18px"><span class="or_class">OR</span></div>
+
 <h2>IFSC code by listed banks</h2>
 <div class="row bank_name_box">
 <div class="col-md-12">

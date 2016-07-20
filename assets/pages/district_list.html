@@ -1,20 +1,32 @@
-<h2>IFSC Code From Select bank Name</h2>
+<h2>IFSC code through "select bank name"</h2>
+<br/>
+<div class="row steps_grid">
+<div class="col-md-3 col-xs-6"><span class="steps10">1</span> Select Bank Name <i class="fa fa-check-square-o"></i></div>
+<div class="col-md-3 col-xs-6"><span class="steps20">2</span> Select State Name <i class="fa fa-check-square-o"></i></div>
+<div class="col-md-3 col-xs-6"><span class="steps30">3</span> Select District Name <i class="fa fa-check-square-o"></i></div>
+<div class="col-md-3 col-xs-6"><span class="steps4">4</span> Select Branch Name</div>
+</div>
+<br/>
 			<div class="row home_page">
 			<div class="col-md-12">
 				<div class="row form-group">
 					<div class="col-md-6">
-					<div class="home_label">{{bankname_on_district_page}} <a href="#/">edit</a></div>
-					<div class="home_label">{{state_on_district_page}} <a href="#/{{bankid_on_district_page}}/{{bankname_on_district_page}}">edit</a></div>
-					<div class="home_label">{{district_on_district_page}} <a href="#/{{bankid_on_district_page}}/{{bankname_on_district_page}}/{{state_on_district_page}}">edit</a></div>
-					<select class="form-control" ng-options="br.branch for br in branch.data | orderBy:'branch'" ng-model="branch_name" ng-change="send_bank_branch_id(bankid_on_district_page,bankname_on_district_page,state_on_district_page,district_on_district_page,branch_name.branch,branch_name.id)">
+					Bank Name
+					<div class="home_label">{{bankname_on_district_page}} <a href="#/"><i class="fa fa-edit"></i> change</a></div>
+					State
+					<div class="home_label">{{state_on_district_page}} <a href="#/{{bankid_on_district_page}}/{{bankname_on_district_page}}"><i class="fa fa-edit"></i> change</a></div>
+					District
+					<div class="home_label">{{district_on_district_page}} <a href="#/{{bankid_on_district_page}}/{{bankname_on_district_page}}/{{state_on_district_page}}"><i class="fa fa-edit"></i> change</a></div>
+					<!-- <select class="form-control" ng-options="br.branch for br in branch.data | orderBy:'branch'" ng-model="branch_name" ng-change="send_bank_branch_id(bankid_on_district_page,bankname_on_district_page,state_on_district_page,district_on_district_page,branch_name.branch,branch_name.id)">
 						<option value="" disabled>Select Branch Name</option>
-					</select>
-					</div>
-					<div class="col-md-4 col-md-offset-2">
-					<h4>Step 1 : Select Bank Name</h4>
-					<h4>Step 2 : Select State Name</h4>
-					<h4>Step 3 : Select District Name</h4>
-					<h4>Step 4 : Select Branch Name</h4>
+					</select> -->
+
+					<ui-select ng-model="branch_name" theme="selectize" title="Select Branch Name" ng-change="send_bank_branch_id(bankid_on_district_page,bankname_on_district_page,state_on_district_page,district_on_district_page,branch_name.branch,branch_name.id)">
+			            <ui-select-match placeholder="Select Branch Name">{{state_name.state}}</ui-select-match>
+			            <ui-select-choices repeat="item in branch.data | filter: $select.search">
+			              <div ng-bind-html="item.branch | highlight: $select.search"></div>
+			            </ui-select-choices>
+			          </ui-select>
 					</div>
 					</div>
 				</div>

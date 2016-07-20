@@ -1,18 +1,28 @@
-<h2>IFSC Code From Select bank Name</h2>
+<h2>IFSC code through select bank name</h2>
+<br/>
+<div class="row steps_grid">
+<div class="col-md-3 col-xs-6"><span class="steps10">1</span> Select Bank Name <i class="fa fa-check-square-o"></i></div>
+<div class="col-md-3 col-xs-6"><span class="steps2">2</span> Select State Name</div>
+<div class="col-md-3 col-xs-6"><span class="steps3">3</span> Select District Name</div>
+<div class="col-md-3 col-xs-6"><span class="steps4">4</span> Select Branch Name</div>
+</div>
+<br/>
 			<div class="row home_page">
 			<div class="col-md-12">
 				<div class="row form-group">
 					<div class="col-md-6">
-					<div class="home_label">{{bank_name}} <a href="#/">edit</a></div>
-					<select class="form-control" ng-options="states.state for states in states.data | orderBy:'state'" ng-model="state_name" ng-change="send_bank_and_state_id(bank_id,bank_name,state_name.state)">
+					Bank Name
+					<div class="home_label">{{bank_name}} <a href="#/"><i class="fa fa-edit"></i> change</a></div>
+					<!-- <select class="form-control" ng-options="states.state for states in states.data | orderBy:'state'" ng-model="state_name" ng-change="send_bank_and_state_id(bank_id,bank_name,state_name.state)">
 						<option value="" disabled>Select State</option>
-					</select>
-					</div>
-					<div class="col-md-4 col-md-offset-2">
-					<h4>Step 1 : Select Bank Name</h4>
-					<h4>Step 2 : Select State Name</h4>
-					<h4>Step 3 : Select District Name</h4>
-					<h4>Step 4 : Select Branch Name</h4>
+					</select> -->
+
+					<ui-select ng-model="state_name" theme="selectize" title="Select State" ng-change="send_bank_and_state_id(bank_id,bank_name,state_name.state)">
+			            <ui-select-match placeholder="Select State">{{state_name.state}}</ui-select-match>
+			            <ui-select-choices repeat="item in states.data | filter: $select.search">
+			              <div ng-bind-html="item.state | highlight: $select.search"></div>
+			            </ui-select-choices>
+			          </ui-select>
 					</div>
 				</div>
 			</div>
