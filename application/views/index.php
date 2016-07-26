@@ -6,48 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bankslibrary.com | Banks IFSC Code MICR Code Branch Code</title>
-	<!-- <base href="/" /> -->
+	<base href="/" />
     <link rel="icon" href="<?=img_url()?>bankslibrary.ico" sizes="16x16">
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
-	<!-- Angular Material requires Angular.js Libraries
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
-
-	Angular Material Library
-	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script> -->
-
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
-	<link href="<?=css_url()?>bootstrap.min.css" rel="stylesheet">
+  	<!-- <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css"> -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans|Reem+Kufi" rel="stylesheet">
+	<link href="<?=css_url()?>bootstrap.css" rel="stylesheet">
 	<link href="<?=css_url()?>select.css" rel="stylesheet">
 	<!-- <link href="<?=css_url()?>font-awesome.min.css" rel="stylesheet"> -->
-	<style>
-.select2 > .select2-choice.ui-select-match {
-            /* Because of the inclusion of Bootstrap */
-            height: 29px;
-        }
-
-        .selectize-control > .selectize-dropdown {
-            top: 36px;
-        }
-        /* Some additional styling to demonstrate that append-to-body helps achieve the proper z-index layering. */
-        .select-box {
-          background: #fff;
-          position: relative;
-          z-index: 1;
-        }
-        .alert-info.positioned {
-          margin-top: 1em;
-          position: relative;
-          z-index: 10000; /* The select2 dropdown has a z-index of 9999 */
-        }
-	</style>
 	<link href="<?=css_url()?>ifscss.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">    
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+    <link href="<?=css_url()?>selectize.default.css" rel="stylesheet">
 </head>
 
 <body>
@@ -72,17 +40,33 @@
 	        <li><a href="#/">Home</a></li>
 	        <li><a href="#/about">About</a></li>
 	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+        	<li><a href="#">Search by Bank Name</a></li>
+        	<li><a href="#">Search by IFSC code</a></li>
+        	<li><a href="#">Search by MICR code</a></li>
+        </ul>
 	    </div><!-- /.navbar-collapse -->
 		</nav>
 		
 		<div class="container">
 		<div class="row">
-		<div class="col-md-9">
-		
+		<div class="col-md-9">		
 			<ng-view></ng-view>
+		<br/>
+		<hr style="border-width:2px"/>
+		<div class="text-center" style="margin-top:-18px"><span class="or_class">Key Points</span></div>
+		<h4><u>What is IFS Code?</u></h4>
+		<p>The Indian Financial System Code (IFS Code or IFSC) is an alphanumeric code that facilitates electronic funds transfer in India. A code uniquely identifies each bank branch participating in the two main Payment and settlement systems in India: the Real Time Gross Settlement (RTGS) and the National Electronic Fund Transfer (NEFT) systems.</p>
+		<h6><a href="https://en.wikipedia.org/wiki/Indian_Financial_System_Code" target="_blank"><i class="fa fa-external-link-square"></i> more details</a></h6>
+		<h4><u>What is MICR Code?</u></h4>
+		<p>Magnetic Ink Character Recognition Code (MICR Code) is a character-recognition technology used mainly by the banking industry to ease the processing and clearance of cheques and other documents. The MICR encoding, called the MICR line, is at the bottom of cheques and other vouchers and typically includes the document-type indicator, bank code, bank account number, cheque number, cheque amount, and a control indicator.</p>
+		<h6><a href="https://en.wikipedia.org/wiki/Magnetic_ink_character_recognition" target="_blank"><i class="fa fa-external-link-square"></i> more details</a></h6>
 		</div>
 		<div class="col-md-3">
-		<h3>Multiple Ways to get Bank Detail</h3>
+		<h3>Change Your Language</h3>
+		<div id="google_translate_element"></div>
+		<!-- <h2>IFSC Code</h2>
+		<h2>MICR Code</h2> -->
 		</div>
 		</div>
 		</div>
@@ -101,5 +85,13 @@
 	<script src="<?=js_url()?>ifsc-route.js"></script>
 	<script src="<?=js_url()?>angular-css.js"></script>
 	<script src="<?=js_url()?>select.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.7/angular-sanitize.js"></script>
+    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+	<script src="<?=js_url()?>ngclipboard.min.js"></script>
+	<script type="text/javascript">
+	function googleTranslateElementInit() {
+	  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'bn,gu,hi,kn,ml,mr,ne,pa,sd,ta,te,ur', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+	}
+	</script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </html>

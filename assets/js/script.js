@@ -1,6 +1,7 @@
-app = angular.module('bankLibrary',['ngRoute','angularCSS','ngSanitize','ui.select']);
+app = angular.module('bankLibrary',['ngRoute','angularCSS','ngSanitize','ui.select','ngclipboard']);
 
 app.controller('MainController',function($scope,$http,$rootScope,$location){
+	$scope.title_bank_detail = "Search any Bank Branch in India"
 	$http.get('/s/get_all_banks').then(function(responce){
 		$scope.banksname = responce
 	})

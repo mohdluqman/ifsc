@@ -1,4 +1,4 @@
-<h2>IFSC code through "select bank name"</h2>
+<h2>{{title_bank_detail}}</h2>
 <br/>
 <div class="row steps_grid">
 <div class="col-md-3 col-xs-6"><span class="steps10">1</span> Select Bank Name <i class="fa fa-check-square-o"></i></div>
@@ -24,15 +24,132 @@
 		</div>
 	</div>
 </div>
-<div class="row"><div class="col-md-2">Bank Name</div><div class="col-md-10">{{bank_info.bank_name}}</div></div><hr/>
-<div class="row"><div class="col-md-2">IFSC Code</div><div class="col-md-10">{{bank_info.ifsc}}</div></div><hr/>
-<div class="row"><div class="col-md-2">MICR Code</div><div class="col-md-10">{{bank_info.micr}}</div></div><hr/>
-<div class="row"><div class="col-md-2">Branch Name</div><div class="col-md-10">{{bank_info.branch}}</div></div><hr/>
-<div class="row"><div class="col-md-2">Bank Address</div><div class="col-md-10">{{bank_info.address}}</div></div><hr/>
-<div class="row"><div class="col-md-2">Contact</div><div class="col-md-10">{{bank_info.contact}}</div></div><hr/>
-<div class="row"><div class="col-md-2">City</div><div class="col-md-10">{{bank_info.city}}</div></div><hr/>
-<div class="row"><div class="col-md-2">District</div><div class="col-md-10">{{bank_info.district}}</div></div><hr/>
-<div class="row"><div class="col-md-2">State</div><div class="col-md-10">{{bank_info.state}}</div></div><hr/>
+<div class="row">
+	<div class="col-md-2">Bank Name</div>
+	<div class="col-md-10">
+		<div class="input-group">
+		<input id="name" class="form-control" type="text" value="{{bank_info.bank_name}}" readonly>
+		<span class="input-group-btn">
+		<button class="btn btn-default" ngclipboard type="button" data-clipboard-target="#name" data-toggle="tooltip" data-placement="button"
+			title="Copy to Clipboard">
+		<img class="clippy" src="assets/clippy.svg" width="13" alt="Copy to clipboard">
+		</button>
+		</span>
+		</div>		
+	</div>
+</div><hr/>
+<div class="row">
+	<div class="col-md-2">IFSC Code</div>
+	<div class="col-md-10">		
+		<div class="input-group">
+		<input id="ifsc" class="form-control" type="text" value="{{bank_info.ifsc}}" readonly>
+		<span class="input-group-btn">
+		<button class="btn btn-default" ngclipboard type="button" data-clipboard-target="#ifsc" data-toggle="tooltip" data-placement="button"
+			title="Copy to Clipboard">
+		<img class="clippy" src="assets/clippy.svg" width="13" alt="Copy to clipboard">
+		</button>
+		</span>
+		</div>	
+	</div>
+</div><hr/>
+<div class="row">
+	<div class="col-md-2">MICR Code</div>
+	<div class="col-md-10">
+		<div class="input-group">
+		<input id="micr" class="form-control" type="text" value="{{bank_info.micr}}" readonly>
+		<span class="input-group-btn">
+		<button class="btn btn-default" ngclipboard type="button" data-clipboard-target="#micr" data-toggle="tooltip" data-placement="button"
+			title="Copy to Clipboard">
+		<img class="clippy" src="assets/clippy.svg" width="13" alt="Copy to clipboard">
+		</button>
+		</span>
+		</div>	
+	</div>
+</div><hr/>
+<div class="row">
+	<div class="col-md-2">Branch Name</div>
+	<div class="col-md-10">
+		<div class="input-group">
+		<input id="branch" class="form-control" type="text" value="{{bank_info.branch}}" readonly>
+		<span class="input-group-btn">
+		<button class="btn btn-default" ngclipboard type="button" data-clipboard-target="#branch" data-toggle="tooltip" data-placement="button"
+			title="Copy to Clipboard">
+		<img class="clippy" src="assets/clippy.svg" width="13" alt="Copy to clipboard">
+		</button>
+		</span>
+		</div>	
+	</div>
+</div><hr/>
+<div class="row">
+	<div class="col-md-2">Bank Address</div>
+	<div class="col-md-10">
+		<div class="input-group">
+		<input id="address" class="form-control" type="text" value="{{bank_info.address}}" readonly>
+		<span class="input-group-btn">
+		<button class="btn btn-default" ngclipboard type="button" data-clipboard-target="#address" data-toggle="tooltip" data-placement="button"
+			title="Copy to Clipboard">
+		<img class="clippy" src="assets/clippy.svg" width="13" alt="Copy to clipboard">
+		</button>
+		</span>
+		</div>
+	</div>
+</div><hr/>
+<div class="row">
+	<div class="col-md-2">Contact</div>
+	<div class="col-md-10">
+		<div class="input-group">
+		<input id="contact" class="form-control" type="text" value="{{bank_info.contact}}" readonly>
+		<span class="input-group-btn">
+		<button class="btn btn-default" ngclipboard type="button" data-clipboard-target="#contact" data-toggle="tooltip" data-placement="button"
+			title="Copy to Clipboard">
+		<img class="clippy" src="assets/clippy.svg" width="13" alt="Copy to clipboard">
+		</button>
+		</span>
+		</div>
+	</div>
+</div><hr/>
+<div class="row">
+	<div class="col-md-2">City</div>
+	<div class="col-md-10">
+		<div class="input-group">
+		<input id="city" class="form-control" type="text" value="{{bank_info.city}}" readonly>
+		<span class="input-group-btn">
+		<button class="btn btn-default" ngclipboard type="button" data-clipboard-target="#city" data-toggle="tooltip" data-placement="button"
+			title="Copy to Clipboard">
+		<img class="clippy" src="assets/clippy.svg" width="13" alt="Copy to clipboard">
+		</button>
+		</span>
+		</div>
+	</div>
+</div><hr/>
+<div class="row">
+	<div class="col-md-2">District</div>
+	<div class="col-md-10">
+		<div class="input-group">
+		<input id="district" class="form-control" type="text" value="{{bank_info.district}}" readonly>
+		<span class="input-group-btn">
+		<button class="btn btn-default" ngclipboard type="button" data-clipboard-target="#district" data-toggle="tooltip" data-placement="button"
+			title="Copy to Clipboard">
+		<img class="clippy" src="assets/clippy.svg" width="13" alt="Copy to clipboard">
+		</button>
+		</span>
+		</div>
+	</div>
+</div><hr/>
+<div class="row">
+	<div class="col-md-2">State</div>
+	<div class="col-md-10">
+		<div class="input-group">
+		<input id="state" class="form-control" type="text" value="{{bank_info.state}}" readonly>
+		<span class="input-group-btn">
+		<button class="btn btn-default" ngclipboard type="button" data-clipboard-target="#state" data-toggle="tooltip" data-placement="button"
+			title="Copy to Clipboard">
+		<img class="clippy" src="assets/clippy.svg" width="13" alt="Copy to clipboard">
+		</button>
+		</span>
+		</div>
+	</div>
+</div><hr/>
 
 <!-- <hr style="border-width:2px"/>
 <div class="text-center" style="margin-top:-30px"><span style="border: 2px solid #eee;border-radius: 50%;padding: 5px 7px 4px 5px;background-color: #f95759;color: #fff">OR</span></div>

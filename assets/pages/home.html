@@ -1,4 +1,4 @@
-<h2>Bank details (ifsc, micr, branch code and address etc.)</h2>
+<h2>{{title_bank_detail}}</h2>
 <hr/>
 <br/>
 <div class="row steps_grid">
@@ -12,10 +12,6 @@
 			<div class="col-md-12">
 				<div class="row form-group">
 					<div class="col-md-6">
-					<!-- <select class="form-control" ng-options="bank.bank_name for bank in banksname.data | orderBy:'bank_name'" ng-model="bankObj" ng-change="send_bank_name_id(bankObj.id,bankObj.bank_name)">
-						<option value="" disabled>Select Bank Name</option>
-					</select> -->
-
 					<ui-select ng-model="bankObj" theme="selectize" title="Choose a person" ng-change="send_bank_name_id(bankObj.id,bankObj.bank_name)">
 			            <ui-select-match placeholder="Select Bank Name">{{bankObj.bank_name}}</ui-select-match>
 			            <ui-select-choices repeat="item in banksname.data | filter: $select.search">
@@ -26,14 +22,12 @@
 				</div>
 			</div>
 			</div>
-<hr style="border-width:2px"/>
-<div class="text-center" style="margin-top:-18px"><span class="or_class">OR</span></div>
-
-<h2>IFSC code by listed banks</h2>
+			
+<!-- <h2>IFSC code by listed banks</h2>
 <div class="row bank_name_box">
 <div class="col-md-12">
 <ul class="bank_list">
 <li ng-repeat="name in banksname.data | orderBy:'name'"><a ng-click="send_bank_name_id(name.id,name.bank_name)">{{name.bank_name}}</a></li>
 </ul>
 </div>
-</div>
+</div> -->
