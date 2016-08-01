@@ -81,7 +81,7 @@
 		<!-- Place this tag where you want the widget to render. -->
 		<br/>
 		<div class="g-person" data-href="//plus.google.com/u/0/115562211208923895849" data-rel="author"></div>
-		<div class="fb-page" data-href="https://www.facebook.com/bankslibrary/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/bankslibrary/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/bankslibrary/">Bankslibrary.com</a></blockquote></div>
+		<div class="fb-page" data-href="https://www.facebook.com/bankslibrary/" data-width="300px" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/bankslibrary/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/bankslibrary/">Bankslibrary.com</a></blockquote></div>
 		</div>
 		</div>
 		</div>
