@@ -16,9 +16,20 @@
 	<!-- <link href="<?=css_url()?>font-awesome.min.css" rel="stylesheet"> -->
 	<link href="<?=css_url()?>ifscss.css" rel="stylesheet">
     <link href="<?=css_url()?>selectize.default.css" rel="stylesheet">
+    <!-- Place this tag in your head or just before your close body tag. -->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div class="container-fluid" ng-controller="MainController">
 	<div class="row">
 	<div class="col-md-12">
@@ -67,6 +78,10 @@
 		<div id="google_translate_element"></div>
 		<!-- <h2>IFSC Code</h2>
 		<h2>MICR Code</h2> -->
+		<!-- Place this tag where you want the widget to render. -->
+		<br/>
+		<div class="g-person" data-href="//plus.google.com/u/0/115562211208923895849" data-rel="author"></div>
+		<div class="fb-page" data-href="https://www.facebook.com/bankslibrary/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/bankslibrary/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/bankslibrary/">Bankslibrary.com</a></blockquote></div>
 		</div>
 		</div>
 		</div>
